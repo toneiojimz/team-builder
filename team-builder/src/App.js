@@ -1,9 +1,15 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom'
-import './App.css';
 
+import './App.css';
 import Members from './components/Member'
 import MemberForm from './components/MemberForm'
+
+
+
+
+
+
+
 
 function App() {
   const [members, setMembers] = useState([
@@ -21,15 +27,18 @@ function App() {
       name: member.name,
       email: member.email,
       role: member.role
+
     };
     setMembers([...members, newMember]);
   };
   return (
     <div className="App">
-      <h1>The "A" Team</h1>
-      {/* we are going to pass a function down as a prop */}
+      <h1>The Eating Team</h1>
+      {/* we are passing a function down as a prop */}
       <MemberForm addNewMember={addNewMember} />
-      <Members members={members} />
+      <div className= "members">
+        <Members members={members} />
+      </div>
     </div>
   );
 }
